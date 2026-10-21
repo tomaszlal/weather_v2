@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import * as Leaflet from 'leaflet';
+import { Events } from '../../event/Events';
 
 @Component({
   imports: [],
@@ -33,5 +34,7 @@ export class Map implements OnInit, AfterViewInit {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     });
     tiles.addTo(this.map);
+
+    this.map.on('click', (e: Leaflet.LeafletMouseEvent) => Events.BUTTON_CLICK.dispatch(e),this);
   }
 }
