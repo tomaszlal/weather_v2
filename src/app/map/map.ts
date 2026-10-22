@@ -35,6 +35,6 @@ export class Map implements OnInit, AfterViewInit {
     });
     tiles.addTo(this.map);
 
-    this.map.on('click', (e: Leaflet.LeafletMouseEvent) => Events.BUTTON_CLICK.dispatch(e),this);
+    this.map.on('click', (e: Leaflet.LeafletMouseEvent) => Events.MAP_CLICK.dispatch(e),this);
   }
 }

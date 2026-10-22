@@ -14,7 +14,7 @@ export class CurrentWeather {
   }
 
   private attachListeners() {
-    Events.BUTTON_CLICK.on(this.clickHandler, this);
+    Events.MAP_CLICK.on(this.clickHandler, this);
   }
 
   private clickHandler(e: L.LeafletMouseEvent): void {
