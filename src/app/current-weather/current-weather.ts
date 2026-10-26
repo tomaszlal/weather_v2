@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Events } from '../../event/Events';
+import { HttpService } from '../services/http-service';
 
 @Component({
   imports: [],
@@ -9,7 +10,7 @@ import { Events } from '../../event/Events';
 })
 export class CurrentWeather {
 
-  constructor() {
+  constructor(private httpService: HttpService) {
     this.attachListeners();
   }
 
@@ -17,8 +18,12 @@ export class CurrentWeather {
     Events.MAP_CLICK.on(this.clickHandler, this);
   }
 
-  private clickHandler(e: L.LeafletMouseEvent): void {
+  private async clickHandler(e: L.LeafletMouseEvent): Promise<void> {
     console.log("Map clicked at: ", e.latlng);
+
+    await this.httpService.getLocalizationName({lat:e.latlng.lat,lon:e.latlng.lng}).subscribe(localization =>{
+        console.log(localization);
+    })
   }
 
 }
