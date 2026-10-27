@@ -16,7 +16,7 @@ export type Address = {
   country_code?: string;
 };
 
-export type Localization = {
+export type PlaceOfLocation = {
   place_id?: number;
   licence?: string;
   osm_type?: string;
