@@ -928,6 +928,13 @@
   dependencies:
     "@tybys/wasm-util" "^0.10.3"
 
+"@openmeteo/sdk@^1.23.0":
+  version "1.30.0"
+  resolved "https://registry.yarnpkg.com/@openmeteo/sdk/-/sdk-1.30.0.tgz#e784f5062dc6ca602499e6676804adfa807d2d60"
+  integrity sha512-JygfpKgbeT2XE6Tbu0v7QFMJetqyjeOnJpEcqACiX5eMuKcSTWi01tL3PfCpUT749BgUY1VVwfs/dBy9Fy+Hpw==
+  dependencies:
+    flatbuffers "^25.9.23"
+
 "@oxc-parser/binding-android-arm-eabi@0.150.0":
   version "0.150.0"
   resolved "https://registry.yarnpkg.com/@oxc-parser/binding-android-arm-eabi/-/binding-android-arm-eabi-0.150.0.tgz#c15f2c5565e56f66def408aaeb8145a029d78809"
@@ -1841,6 +1848,11 @@ fdir@^6.5.0:
   resolved "https://registry.yarnpkg.com/fdir/-/fdir-6.5.0.tgz#ed2ab967a331ade62f18d077dae192684d50d350"
   integrity sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg==
 
+flatbuffers@^25.9.23:
+  version "25.9.23"
+  resolved "https://registry.yarnpkg.com/flatbuffers/-/flatbuffers-25.9.23.tgz#346811557fe9312ab5647535e793c761e9c81eb1"
+  integrity sha512-MI1qs7Lo4Syw0EOzUl0xjs2lsoeqFku44KpngfIduHBYvzm8h2+7K8YMQh1JtVVVrUvhLpNwqVi4DERegUJhPQ==
+
 flru@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flru/-/flru-1.0.2.tgz#1ae514c62b8b035ffff9ca9e4563ddcc817f4845"
@@ -2350,6 +2362,14 @@ onetime@^7.0.0:
   integrity sha512-VXJjc87FScF88uafS3JllDgvAm+c/Slfz06lorj2uAY34rlUu0Nt+v8wreiImcrgAjjIHp1rXpTDlLOGw29WwQ==
   dependencies:
     mimic-function "^5.0.0"
+
+openmeteo@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/openmeteo/-/openmeteo-1.2.3.tgz#754a4941d78301ff7fc47a384512c3f4a1821071"
+  integrity sha512-3updmgCMnCAAjAgV3RfhMdIBPi/43RtbjQ4CizHGn52RP9SpgmVCDRpun+Ex75NG3jTF3pZp+d1BPlP9DWMHiQ==
+  dependencies:
+    "@openmeteo/sdk" "^1.23.0"
+    flatbuffers "^25.9.23"
 
 ora@9.4.1:
   version "9.4.1"

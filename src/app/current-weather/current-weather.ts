@@ -27,6 +27,7 @@ export class CurrentWeather {
     const coordinates: Coordinates = { lat: e.latlng.lat, lon: e.latlng.lng };
     const place = await this.httpService.getLocationName(coordinates);
     this.placeOfLocation.set(place);
+    await this.httpService.getWeather(coordinates);
     console.log(this.placeOfLocation);
 
 
