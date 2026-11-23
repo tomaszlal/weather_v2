@@ -1,3 +1,12 @@
-<p>current-weather works!</p>
-<h2 class="text-xl font-bold text-gray-900">{{ placeOfLocation()?.name }}</h2>
-<p class="text-xs text-gray-500 mt-0.5 line-clamp-1">{{ placeOfLocation()?.display_name }}</p>
+<div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/80 pb-4 mb-6">
+  <div>
+    <h1 class="text-xl sm:text-2xl font-bold tracking-wide text-white uppercase flex items-center gap-2">
+      {{ city() }}
+    </h1>
+    <p class="text-xs sm:text-sm text-slate-400 mt-0.5">
+      {{ weather()?.current?.time | date:'d MMMM yyyy HH:mm'}}
+    </p>
+  </div>
+  <h2 class="text-xl font-bold text-gray-900">{{ placeOfLocation()?.name }}</h2>
+  <p class="text-xs text-gray-500 mt-0.5 line-clamp-1">{{ placeOfLocation()?.display_name }}</p>
+</div>

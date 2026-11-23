@@ -4,6 +4,11 @@ export type Coordinates = {
 }
 
 export type Address = {
+  town?: string;
+  village?: string;
+  administrative?: string;
+  municipality?: string;
+  county?: string;
   road?: string;
   city_block?: string;
   quarter?: string;
