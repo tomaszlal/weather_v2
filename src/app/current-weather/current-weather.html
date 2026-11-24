@@ -4,9 +4,29 @@
       {{ city() }}
     </h1>
     <p class="text-xs sm:text-sm text-slate-400 mt-0.5">
-      {{ weather()?.current?.time | date:'d MMMM yyyy HH:mm'}}
+      {{ weather()?.current?.time | date: 'd MMMM yyyy HH:mm' }}
     </p>
   </div>
+
+  <div class="flex items-center gap-4">
+    <!-- Weather image / icon -->
+    <div class="p-3 bg-sky-500/10 border border-sky-500/20 rounded-2xl text-sky-400">
+      <img [src]="imageName()" alt="Weather icon" class="w-16 h-16 sm:w-20 sm:h-20" />
+    </div>
+    <!-- Temperature -->
+    <!-- TODO: Bind temperature value -->
+    <div>
+      <div class="flex items-baseline">
+        <span class="text-5xl sm:text-6xl font-extrabold text-white tracking-tight">22</span>
+        <span class="text-3xl font-bold text-sky-400">°C</span>
+      </div>
+      <p class="text-sm font-medium text-slate-300 mt-1">Zachmurzenie umiarkowane</p>
+      <p class="text-xs text-slate-400">
+        Odczuwalna: <span class="text-slate-200 font-semibold">23°C</span>
+      </p>
+    </div>
+  </div>
+
   <h2 class="text-xl font-bold text-gray-900">{{ placeOfLocation()?.name }}</h2>
   <p class="text-xs text-gray-500 mt-0.5 line-clamp-1">{{ placeOfLocation()?.display_name }}</p>
 </div>

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Coordinates, PlaceOfLocation, WeatherResponse } from '../../types/common';
+import { Coordinates, PlaceOfLocation, WeatherResponse } from '../../types/ApiTypes';
 import { firstValueFrom, Observable } from 'rxjs';
 import { fetchWeatherApi } from 'openmeteo';
 
