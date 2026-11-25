@@ -1,32 +1,73 @@
-<div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/80 pb-4 mb-6">
+<div
+  class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800/80 pb-4 mb-6"
+>
   <div>
-    <h1 class="text-xl sm:text-2xl font-bold tracking-wide text-white uppercase flex items-center gap-2">
-      {{ city() }}
+    <h1
+      class="text-xl sm:text-2xl font-bold tracking-wide text-white uppercase flex items-center gap-2"
+    >
+      {{ city() }}, {{ weather()?.current?.time | date: 'd MMMM yyyy' }}
     </h1>
     <p class="text-xs sm:text-sm text-slate-400 mt-0.5">
-      {{ weather()?.current?.time | date: 'd MMMM yyyy HH:mm' }}
+      Aktualizacja : {{ weather()?.current?.time | date: 'HH:mm' }}
     </p>
   </div>
 
-  <div class="flex items-center gap-4">
+  <div class="flex items-center gap-2">
     <!-- Weather image / icon -->
     <div class="p-3 bg-sky-500/10 border border-sky-500/20 rounded-2xl text-sky-400">
       <img [src]="imageName()" alt="Weather icon" class="w-16 h-16 sm:w-20 sm:h-20" />
     </div>
     <!-- Temperature -->
-    <!-- TODO: Bind temperature value -->
     <div>
-      <div class="flex items-baseline">
-        <span class="text-5xl sm:text-6xl font-extrabold text-white tracking-tight">22</span>
+      <div class="flex">
+        <span class="text-5xl sm:text-6xl font-extrabold text-white tracking-tight">{{
+          weather()?.current?.temperature_2m | number: '1.0-0'
+        }}</span>
         <span class="text-3xl font-bold text-sky-400">°C</span>
       </div>
-      <p class="text-sm font-medium text-slate-300 mt-1">Zachmurzenie umiarkowane</p>
+      <p class="text-sm font-medium text-slate-300 mt-1">{{ currentWeatherName() }}</p>
       <p class="text-xs text-slate-400">
-        Odczuwalna: <span class="text-slate-200 font-semibold">23°C</span>
+        Odczuwalna:
+        <span class="text-slate-200 font-semibold"
+          >{{ weather()?.current?.apparent_temperature | number: '1.0-0' }}°C</span
+        >
       </p>
     </div>
   </div>
+  <!-- Secondary Metrics Grid -->
+  <div class="grid grid-cols-2 gap-3 text-xs bg-slate-950/40 p-4 rounded-2xl border border-slate-800/60">
+    <div class="flex items-center gap-2.5">
+      <img src="assets/humidity.svg" alt="Humidity" class="w-6 h-6 brightness-0 invert shrink-0">
+      <div>
+        <span class="block text-slate-400 text-[11px]">Wilgotność</span>
+        <span class="font-semibold text-slate-200">{{ weather()?.current?.relative_humidity_2m | number: '1.0-0' }}%</span>
+      </div>
+    </div>
 
-  <h2 class="text-xl font-bold text-gray-900">{{ placeOfLocation()?.name }}</h2>
-  <p class="text-xs text-gray-500 mt-0.5 line-clamp-1">{{ placeOfLocation()?.display_name }}</p>
+    <div class="flex items-center gap-2.5">
+      <img src="assets/wind_direction_10m.svg" alt="Wind" class="w-6 h-6 brightness-0 invert shrink-0">
+      <div>
+        <span class="block text-slate-400 text-[11px]">Wiatr</span>
+        <span class="font-semibold text-slate-200">{{ weather()?.current?.wind_speed_10m | number: '1.0-0' }} km/h {{ currentWindDirection() }}</span>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-2.5">
+      <img src="assets/pressure_msl.svg" alt="Pressure" class="w-6 h-6 brightness-0 invert shrink-0">
+      <div>
+        <span class="block text-slate-400 text-[11px]">Ciśnienie</span>
+        <span class="font-semibold text-slate-200">{{ weather()?.current?.pressure_msl | number: '1.0-0' }} hPa</span>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-2.5">
+      <img src="assets/cloud_cover.svg" alt="Cloud Cover" class="w-6 h-6 brightness-0 invert shrink-0">
+      <div>
+        <span class="block text-slate-400 text-[11px]">Zachmurzenie</span>
+        <span class="font-semibold text-slate-200">{{ weather()?.current?.cloud_cover | number: '1.0-0' }}%</span>
+      </div>
+    </div>
+  </div>
+  <!-- <h2 class="text-xl font-bold text-gray-900">{{ placeOfLocation()?.name }}</h2>
+  <p class="text-xs text-gray-500 mt-0.5 line-clamp-1">{{ placeOfLocation()?.display_name }}</p> -->
 </div>
